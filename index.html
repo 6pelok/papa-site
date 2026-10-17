@@ -358,60 +358,226 @@ h2 {
         transform: translateY(0);
     }
 }
-@media(max-width:720px) {
-    .nav {
-        align-items: flex-start;
-    }
-    .brand {
-        max-width: 110px;
-    }
-    .nav a {
-        font-size: 10px;
-        margin-left: 7px;
-    }
+@media(max-width:900px),(max-aspect-ratio:1/1) {
     .hero {
-        padding-top: 130px;
-        align-items: flex-start;
-    }
-    .hero-gallery {
-        height: 43%;
-        width: 86%;
-        right: 4%;
-        bottom: 4%;
-        gap: 7px;
-        opacity: .85;
-    }
-    .hero-gallery img {
-        border-width: 1px;
-    }
-    .hero-img {
-        height: 57%;
-        width: 100%;
-        right: -8%;
-        opacity: .72;
+        min-height: auto;
+        flex-direction: column;
+        align-items: stretch;
+        justify-content: flex-start;
+        padding: 100px 5vw 48px;
     }
     .hero:after {
-        background: linear-gradient(90deg,#171a1ce8,#171a1c88 60%,transparent),linear-gradient(0deg,#171a1c 0%,transparent 60%);
+        display: none;
     }
     .hero-copy {
+        max-width: 100%;
+    }
+    .btn {
+        color: var(--gold);
+    }
+    .btn.primary {
+        color: #171a1c;
+    }
+    .hero-gallery {
         position: relative;
-        z-index: 2;
+        right: auto;
+        bottom: auto;
+        width: 100%;
+        max-width: 600px;
+        height: auto;
+        aspect-ratio: 1 / 1;
+        margin: 36px auto 0;
+        transform: none;
+        opacity: 1;
+        gap: 8px;
+    }
+    .hero-gallery img:nth-child(n) {
+        transform: none;
+    }
+    .scrollhint {
+        position: static;
+        margin-top: 22px;
+        text-align: center;
+    }
+}
+@media(max-width:720px) {
+    html {
+        overflow-x: hidden;
+    }
+    body {
+        overflow-x: hidden;
+        -webkit-text-size-adjust: 100%;
+    }
+    .section,.hero {
+        scroll-margin-top: 56px;
+    }
+    .section[id] {
+        scroll-margin-top: 56px;
+    }
+
+    /* шапка */
+    .nav {
+        align-items: center;
+        padding: 10px 16px;
+        gap: 10px;
+    }
+    .brand {
+        font-size: 10px;
+        letter-spacing: .14em;
+        line-height: 1.3;
+        max-width: 96px;
+    }
+    .nav > div:last-child {
+        display: flex;
+        gap: 2px;
+    }
+    .nav a {
+        font-size: 12px;
+        margin-left: 0;
+        padding: 8px 7px;
+    }
+
+    /* первый экран: всё идёт сверху вниз, ничего не налезает */
+    .hero {
+        min-height: auto;
+        flex-direction: column;
+        align-items: stretch;
+        justify-content: flex-start;
+        padding: 96px 20px 40px;
+    }
+    .hero:after {
+        display: none;
+    }
+    .hero-copy {
+        max-width: 100%;
+    }
+    h1 {
+        font-size: clamp(34px,11vw,50px);
+        margin: 16px 0;
+        overflow-wrap: break-word;
+    }
+    .lead {
+        font-size: 18px;
+        max-width: 100%;
+    }
+    .btn {
+        display: block;
+        text-align: center;
+        padding: 15px 18px;
+        margin: 14px 0 0;
+        font-size: 12px;
+    }
+    .hero-gallery {
+        position: relative;
+        right: auto;
+        bottom: auto;
+        width: 100%;
+        height: auto;
+        aspect-ratio: 1 / 1;
+        gap: 8px;
+        margin-top: 36px;
+        transform: none;
+        opacity: 1;
+    }
+    .hero-gallery img:nth-child(n) {
+        transform: none;
+    }
+    .scrollhint {
+        position: static;
+        margin-top: 22px;
+        text-align: center;
+    }
+
+    /* секции */
+    .section {
+        padding: 56px 20px;
+    }
+    .section p {
+        font-size: 16px;
+    }
+    h2 {
+        font-size: clamp(28px,8.5vw,38px);
+        margin: 12px 0 16px;
+        overflow-wrap: break-word;
+    }
+    .sectionhead {
+        margin-bottom: 24px;
     }
     .two {
         grid-template-columns: 1fr;
+        gap: 28px;
     }
     .two .photo {
         max-height: 430px;
     }
+    .quote {
+        font-size: 24px;
+        margin: 20px 0;
+    }
+
+    /* карточки */
     .cards {
         grid-template-columns: 1fr;
     }
-    .section {
-        padding-top: 68px;
-        padding-bottom: 68px;
+    .card {
+        padding: 18px;
     }
-    .section p {
-        font-size: 16px;
+    .card-photo {
+        height: auto;
+        aspect-ratio: 4 / 3;
+    }
+
+    /* таймлайн воспоминаний */
+    .timeline {
+        padding-left: 20px;
+        margin: 22px 0;
+    }
+    .memory:before {
+        left: -26px;
+    }
+    .memory h3 {
+        font-size: 19px;
+        line-height: 1.3;
+    }
+    .memory p {
+        font-size: 15.5px;
+    }
+
+    /* письмо */
+    .env-front {
+        min-height: 190px;
+    }
+    .env-label {
+        font-size: 10px;
+        width: 90%;
+        text-align: center;
+    }
+    .letter {
+        padding: 22px 18px;
+    }
+    .letter p {
+        font-size: 16.5px;
+    }
+    .signature {
+        font-size: 22px;
+    }
+}
+@media(max-width:380px) {
+    .hero {
+        padding-left: 16px;
+        padding-right: 16px;
+    }
+    .section {
+        padding-left: 16px;
+        padding-right: 16px;
+    }
+    .brand {
+        max-width: 80px;
+        letter-spacing: .1em;
+    }
+    .nav a {
+        padding: 8px 5px;
+        font-size: 11px;
     }
 }
   </style>
