@@ -1,0 +1,867 @@
+<!DOCTYPE html>
+<html lang="ru">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width,initial-scale=1" name="viewport"/>
+  <meta content="#171a1c" name="theme-color"/>
+  <title>
+   Денис Викторович. Главная история
+  </title>
+  <style>
+   :root {
+    --bg: #171a1c;
+    --gold: #c6a36a;
+    --cream: #eee6d8;
+    --muted: #bcb6ad;
+    --line: #ffffff20;
+}
+* {
+    box-sizing: border-box;
+}
+html {
+    scroll-behavior: smooth;
+}
+body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--cream);
+    font-family: Georgia,'Times New Roman',serif;
+    line-height: 1.65;
+}
+.nav {
+    position: fixed;
+    z-index: 5;
+    top: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 14px 5vw;
+    background: #111416df;
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--line);
+}
+.brand,.eyebrow {
+    font: 11px Arial,sans-serif;
+    letter-spacing: .22em;
+    text-transform: uppercase;
+    color: var(--gold);
+}
+.nav a {
+    font: 12px Arial,sans-serif;
+    color: #c9c0b4;
+    text-decoration: none;
+    margin-left: 14px;
+}
+.hero {
+    min-height: 100svh;
+    display: flex;
+    align-items: center;
+    padding: 120px 7vw 70px;
+    position: relative;
+    overflow: hidden;
+    background: radial-gradient(ellipse at 80% 55%,#5e472c55,transparent 48%),linear-gradient(120deg,#171a1c 35%,#222526);
+}
+.hero-copy {
+    z-index: 2;
+    max-width: 610px;
+}
+.hero:after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(90deg,#171a1c 0%,#171a1cbb 45%,transparent 100%);
+    pointer-events: none;
+}
+.hero-gallery {
+    position: absolute;
+    right: 2%;
+    bottom: 4%;
+    height: 92%;
+    width: 49%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 12px;
+    z-index: 1;
+    transform: rotate(1deg);
+}
+.hero-gallery img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border: 1px solid #c6a36a88;
+    box-shadow: 0 15px 35px #0008;
+    border-radius: 3px;
+    min-height: 0;
+}
+.hero-gallery img:nth-child(2) {
+    transform: translateY(15px);
+}
+.hero-gallery img:nth-child(3) {
+    transform: translateY(-10px);
+}
+.hero-gallery img:nth-child(4) {
+    transform: translateY(8px);
+}
+.card-photo {
+    width: 100%;
+    height: 70%;
+    object-fit: cover;
+    margin: 0 0 18px;
+    border: 1px solid #ffffff20;
+}
+.hero-img {
+    position: absolute;
+    right: 1%;
+    bottom: 0;
+    height: 94%;
+    width: 75%;
+    object-fit: contain;
+    object-position: center bottom;
+    filter: drop-shadow(0 0 45px #0008);
+    mask-image: linear-gradient(to bottom,black 83%,transparent);
+}
+h1 {
+    font-size: clamp(42px,6.8vw,88px);
+    line-height: .98;
+    letter-spacing: -.04em;
+    margin: 22px 0;
+}
+h1 span {
+    display: block;
+    color: var(--gold);
+}
+.lead {
+    font-size: clamp(17px,2vw,21px);
+    max-width: 490px;
+    color: #ddd4c6;
+}
+.btn {
+    display: inline-block;
+    border: 1px solid var(--gold);
+    padding: 12px 18px;
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: .1em;
+    font: 11px Arial,sans-serif;
+    margin: 22px 10px 0 0;
+}
+.primary {
+    background: var(--gold);
+    color: #171a1c;
+}
+.scrollhint {
+    position: absolute;
+    bottom: 18px;
+    left: 7vw;
+    z-index: 2;
+    color: #a69c8d;
+    font: 10px Arial,sans-serif;
+    letter-spacing: .15em;
+    text-transform: uppercase;
+}
+.section {
+    padding: 90px clamp(22px,8vw,120px);
+    border-top: 1px solid var(--line);
+}
+.warm {
+    background: #e8dfd0;
+    color: #272624;
+}
+.warm .eyebrow {
+    color: #8a6835;
+}
+.warm .muted {
+    color: #5c5852;
+}
+.sectionhead {
+    max-width: 780px;
+    margin-bottom: 32px;
+}
+h2 {
+    font-size: clamp(32px,5vw,58px);
+    line-height: 1.07;
+    margin: 14px 0 20px;
+}
+.section p {
+    font-size: 17px;
+}
+.muted {
+    color: var(--muted);
+}
+.two {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: clamp(24px,5vw,70px);
+    align-items: center;
+}
+.photo {
+    width: 100%;
+    max-height: 720px;
+    object-fit: cover;
+    border: 1px solid #ffffff25;
+    box-shadow: 0 20px 60px #0003;
+}
+.quote {
+    font-size: clamp(25px,3vw,39px);
+    line-height: 1.25;
+    color: var(--gold);
+    margin: 24px 0;
+}
+.warm .quote {
+    color: #8a6835;
+}
+.cards {
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    gap: 16px;
+}
+.card {
+    border: 1px solid var(--line);
+    padding: 23px;
+    background: #ffffff05;
+}
+.card .num {
+    color: var(--gold);
+    font: 11px Arial,sans-serif;
+    letter-spacing: .15em;
+}
+.card h3 {
+    font-size: 22px;
+    margin: 10px 0;
+}
+.card p {
+    font-size: 15px;
+    color: var(--muted);
+}
+.warm .card {
+    border-color: #0002;
+    background: #fff5;
+}
+.warm .card p {
+    color: #5c5852;
+}
+.timeline {
+    border-left: 1px solid #8a6835;
+    padding-left: 25px;
+    margin: 28px 0;
+}
+.memory {
+    position: relative;
+    margin: 0 0 26px;
+}
+.memory:before {
+    content: "";
+    position: absolute;
+    left: -31px;
+    top: 10px;
+    width: 11px;
+    height: 11px;
+    background: #8a6835;
+    border-radius: 50%;
+}
+.memory h3 {
+    margin: 0 0 5px;
+    font-size: 21px;
+}
+.memory p {
+    margin: 0;
+    color: #5c5852;
+    font-size: 16px;
+}
+.letter-wrap {
+    max-width: 800px;
+    margin: auto;
+    text-align: center;
+}
+.envelope {
+    width: min(100%,540px);
+    margin: 32px auto 0;
+    border: 0;
+    background: none;
+    cursor: pointer;
+    display: block;
+}
+.env-front {
+    position: relative;
+    min-height: 230px;
+    background: linear-gradient(145deg,#d3bd96,#a8834e);
+    color: #27211a;
+    display: grid;
+    place-items: center;
+    box-shadow: 0 25px 70px #0005;
+}
+.seal {
+    width: 65px;
+    height: 65px;
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    background: #30251b;
+    color: #e4c88e;
+    border: 2px solid #e4c88e;
+    font-size: 26px;
+}
+.env-label {
+    position: absolute;
+    bottom: 18px;
+    letter-spacing: .15em;
+    text-transform: uppercase;
+    font: 11px Arial,sans-serif;
+}
+.letter {
+    display: none;
+    text-align: left;
+    background: #f4ecdd;
+    color: #302a23;
+    padding: clamp(22px,5vw,50px);
+    margin: 20px auto;
+    box-shadow: 0 20px 60px #0004;
+}
+.letter.open {
+    display: block;
+    animation: appear .6s ease;
+}
+.letter p {
+    font-size: 18px;
+}
+.signature {
+    font-size: 26px;
+    color: #8a6835;
+}
+.footer {
+    text-align: center;
+    padding: 45px 20px;
+    color: #aaa195;
+    border-top: 1px solid var(--line);
+}
+.footer strong {
+    display: block;
+    color: var(--gold);
+    font-size: clamp(28px,5vw,50px);
+    font-weight: normal;
+    margin: 10px;
+}
+.small {
+    font: 11px Arial,sans-serif;
+    color: #8e877c;
+}
+@keyframes appear {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+@media(max-width:720px) {
+    .nav {
+        align-items: flex-start;
+    }
+    .brand {
+        max-width: 110px;
+    }
+    .nav a {
+        font-size: 10px;
+        margin-left: 7px;
+    }
+    .hero {
+        padding-top: 130px;
+        align-items: flex-start;
+    }
+    .hero-gallery {
+        height: 43%;
+        width: 86%;
+        right: 4%;
+        bottom: 4%;
+        gap: 7px;
+        opacity: .85;
+    }
+    .hero-gallery img {
+        border-width: 1px;
+    }
+    .hero-img {
+        height: 57%;
+        width: 100%;
+        right: -8%;
+        opacity: .72;
+    }
+    .hero:after {
+        background: linear-gradient(90deg,#171a1ce8,#171a1c88 60%,transparent),linear-gradient(0deg,#171a1c 0%,transparent 60%);
+    }
+    .hero-copy {
+        position: relative;
+        z-index: 2;
+    }
+    .two {
+        grid-template-columns: 1fr;
+    }
+    .two .photo {
+        max-height: 430px;
+    }
+    .cards {
+        grid-template-columns: 1fr;
+    }
+    .section {
+        padding-top: 68px;
+        padding-bottom: 68px;
+    }
+    .section p {
+        font-size: 16px;
+    }
+}
+  </style>
+ </head>
+ <body>
+  <nav class="nav">
+   <div class="brand">
+    Главная история
+   </div>
+   <div>
+    <a href="#about">
+     О нём
+    </a>
+    <a href="#us">
+     Мы
+    </a>
+    <a href="#memories">
+     Архив
+    </a>
+    <a href="#letter">
+     Письмо
+    </a>
+   </div>
+  </nav>
+  <header class="hero">
+   <div class="hero-copy">
+    <div class="eyebrow">
+     История одного человека. И одной дочери.
+    </div>
+    <h1>
+     Денис Викторович
+     <span>
+      Главная история
+     </span>
+    </h1>
+    <p class="lead">
+     Для кого-то он просто человек. Для меня — тот, кому по силам всё.
+    </p>
+    <a class="btn primary" href="#about">
+     Начать историю
+    </a>
+    <a class="btn" href="#letter">
+     Сразу к главному
+    </a>
+   </div>
+   <div aria-label="Фотографии папы и дочери" class="hero-gallery">
+    <img alt="Папа и дочь вместе" src="images/photo-01.jpg"/>
+    <img alt="Папа учит дочь кататься на велосипеде" src="images/photo-02.jpg"/>
+    <img alt="Семейное фото" src="images/photo-03.jpg"/>
+    <img alt="Папа и дочь на семейной фотографии" src="images/14.jpeg"/>
+   </div>
+   <div class="scrollhint">
+    Листай вниз — здесь наша история ↓
+   </div>
+  </header>
+  <section class="section" id="about">
+   <div class="two">
+    <div>
+     <div class="eyebrow">
+      Глава I · Человек большого масштаба
+     </div>
+     <h2>
+      Мой папа.
+      <br/>
+      Мой герой.
+     </h2>
+     <p>
+      Есть люди, рядом с которыми даже большие проблемы кажутся меньше. Люди, которые умеют поддержать, рассмешить, успокоить и внушить уверенность, что всё получится.
+     </p>
+     <p>
+      Для меня такой человек — ты. Человек с сильным характером, золотыми руками и юмором, который невозможно перепутать ни с чьим другим.
+     </p>
+     <p>
+      Ты можешь разобраться почти с чем угодно: от машины до ремонта. А если что-то решил — будешь идти до конца.
+     </p>
+     <div class="quote">
+      «Ты мой герой».
+     </div>
+    </div>
+    <img alt="Денис Викторович с дочерью" class="photo" src="images/13.jpg"/>
+   </div>
+  </section>
+  <section class="section warm" id="us">
+   <div class="two">
+    <img alt="Папа и дочь вместе" class="photo" src="images/photo-06.jpg"/>
+    <div>
+     <div class="eyebrow">
+      Глава II · Самое важное
+     </div>
+     <h2>
+      Папа и я.
+      <br/>
+      Наша история.
+     </h2>
+     <p>
+      Я не всегда говорю вслух всё, что чувствую. Но это совсем не значит, что я чувствую мало.
+     </p>
+     <p>
+      Я благодарна тебе за всё, что ты для меня сделал, за наши встречи, поездки, сюрпризы и воспоминания. Спасибо за то, что ты есть.
+     </p>
+     <p>
+      Мне дорого, что мы стали ближе. И я очень рада, что ты есть в моей жизни.
+     </p>
+     <div class="quote">
+      «Ты так похожа на своего папу» — мой любимый комплимент.
+     </div>
+     <p>
+      Для кого-то это просто сходство. Для меня — гордость. Потому что для меня ты самый красивый, с самым сильным характером и самым смешным юмором. Мне приятно, что во мне есть частичка тебя. Хотя, конечно, я ещё и твоя лучшая версия :)
+     </p>
+    </div>
+   </div>
+  </section>
+  <section class="section" id="garage">
+   <div class="sectionhead">
+    <div class="eyebrow">
+     Глава III · Его территория
+    </div>
+    <h2>
+     Там, где всё можно починить
+    </h2>
+    <p class="muted">
+     Гараж, машины, инструменты и очередная задача, с которой папа обязательно разберётся.
+    </p>
+   </div>
+   <div class="cards">
+    <article class="card">
+     <img alt="БелАЗ на работе" class="card-photo" src="images/photo-08.jpg"/>
+     <div class="num">
+      01 / РАБОТА
+     </div>
+     <h3>
+      За рулём БелАЗа
+     </h3>
+     <p>
+      Работа, требующая ответственности и крепкого характера. Масштаб машин тебе подходит — ты и сам человек большого масштаба.
+     </p>
+    </article>
+    <article class="card">
+     <img alt="Папа в мастерской" class="card-photo" src="images/photo-09.jpg"/>
+     <div class="num">
+      02 / ГАРАЖ
+     </div>
+     <h3>
+      Твоя территория
+     </h3>
+     <p>
+      Ты умеешь сделать пространство удобным, красивым и своим. А если что-то сломалось — это просто ещё одна задачка для тебя.
+     </p>
+    </article>
+    <article class="card">
+     <img alt="Машина папы" class="card-photo" src="images/photo-12.jpg"/>
+     <div class="num">
+      03 / МАШИНЫ
+     </div>
+     <h3>
+      Только чистота
+     </h3>
+     <p>
+      Твой Touareg должен быть безупречным, такой идеально чистой машины еще никто не видел
+     </p>
+    </article>
+   </div>
+  </section>
+  <section class="section warm" id="memories">
+   <div class="sectionhead">
+    <div class="eyebrow">
+     Глава IV · Секретный архив
+    </div>
+    <h2>
+     Мои детские воспоминания о нас:
+     <br/>
+     правда это или нет?
+    </h2>
+    <p class="muted">
+     Некоторые истории я помню до сих пор. Некоторые теперь звучат так, будто их придумал маленький сценарист с очень богатой фантазией.
+    </p>
+   </div>
+   <div class="timeline">
+    <div class="memory">
+     <h3>
+      Дело № 01. Велосипедная операция
+     </h3>
+     <p>
+      Ты держал велосипед, пока я боялась ехать одна. А потом отпустил — и я поехала! Тогда мне показалось, что ты меня предал: обещал же не отпускать. Сейчас понимаю, что именно так я и научилась.
+     </p>
+    </div>
+    <div class="memory">
+     <h3>
+      Дело № 03. Коктейль от маленького бармена
+     </h3>
+     <p>
+      Ты любил томатный сок с солью, а я обожала играть в бармена. Однажды приготовила тебе «авторский коктейль» с таким количеством соли и специй, что пить его было невозможно. Никто не оценил моё мастерство. Считаю, что вы просто не разбирались в высокой кухне.
+     </p>
+    </div>
+    <div class="memory">
+     <h3>
+      Дело № 04. Снежный замок в гараже
+     </h3>
+     <p>
+      Пока ты мыл машину и покрывал её пеной, я сидела внутри и представляла, что нахожусь в снежном замке. Ты занимался обычными делами, а у меня было целое приключение.
+     </p>
+    </div>
+    <div class="memory">
+     <h3>
+      Дело № 06. Фея, которая улетела на дерево
+     </h3>
+     <p>
+      Мне подарили дорогую летающую фею на управлении рукой. Мы пошли во двор тестировать подарок, случайно переборщили с управлением — и фея улетела на дерево. Конечно, после этого она сломалась. На этом её короткая лётная карьера закончилась.
+     </p>
+    </div>
+    <div class="memory">
+     <h3>
+      Дело № 07. Загадка большого гриба
+     </h3>
+     <p>
+      Под нашим балконом рос огромный, по моим детским меркам, красивый гриб. Однажды папа поздно вернулся с работы и, кажется, забыл ключи. То ли он залезал через балкон, то ли стучал по нему — точно уже не вспомнить. Утром гриб оказался раздавлен. Мы так и не выяснили, что случилось, но главным подозреваемым назначили папу. Ахах.
+     </p>
+    </div>
+    <div class="memory">
+     <h3>
+      Дело № 08. Папино место
+     </h3>
+     <p>
+      У папы всегда было любимое место за обеденным столом — его стул. Если папа собирался кушать, садиться на него никому было нельзя. У каждого героя должно быть своё тронное место.
+     </p>
+    </div>
+    <div class="memory">
+     <h3>
+      Дело № 09. Спасательная операция на Обском море
+     </h3>
+     <p>
+      Мы поехали куда-то на Обское море двумя машинами, вместе с бабушкой и дедушкой. Папина машина застряла, и дедушка пытался вытащить её своей машиной. Семейная экспедиция в действии.
+     </p>
+    </div>
+    <div class="memory">
+     <h3>
+      Дело № 10. Щекотка до слёз
+     </h3>
+     <p>
+      Папа всегда очень сильно меня щекотал — иногда прямо до слёз. Но мне всё равно нравилось смеяться с ним и так получать его внимание.
+     </p>
+    </div>
+    <div class="memory">
+     <h3>
+      Дело № 11. Жук и папина рука
+     </h3>
+     <p>
+      В детстве папа называл меня Жуком и Жучком. А ещё я любила повиснуть у него на руке: он сгибал её, я цеплялась и висела. Маленький Жучок всегда находил способ быть поближе к папе.
+     </p>
+    </div>
+    <div class="memory">
+     <h3>
+      Дело № 12. Киндер за поездку
+     </h3>
+     <p>
+      Иногда папа брал меня с собой в магазин. Если я шла с ним, он покупал мне киндер-яйцо. Я была так рада этому маленькому подарку. Наверное поэтому я сейчас так обожаю киндеры.
+     </p>
+    </div>
+    <div class="memory">
+     <h3>
+      Дело № 13. Бизнес-помощница в гостях
+     </h3>
+     <p>
+      Когда папа брал меня в гости к своему другу в гараж, я чувствовала себя его бизнес-помощницей. Не знаю, какие важные задачи я там решала, но ощущение у меня было именно такое. Ахах.
+     </p>
+    </div>
+    <div class="memory">
+     <h3>
+      Дело № 14. Я сломала машину?!
+     </h3>
+     <p>
+      Пока папа уходил в магазин, я ждала его на подлокотнике посередине сидений, а если он долго не возвращался — пересаживалась за руль и представляла, что это моя машина. Однажды я покрутила руль заглушённой машины, он заблокировался, и я решила, что всё сломала. Папа пошутил, что теперь мы не сможем повернуть домой. После этого я предпочитала включать только аварийку.
+     </p>
+    </div>
+    <div class="memory">
+     <h3>
+      Дело № 15. Пивной стакан и маленькая ножка
+     </h3>
+     <p>
+      Я любила лазить по дивану и однажды случайно наступила маленькой ножкой в папин пивной стакан. Сначала меня наругали, а потом мы так смеялись, потому что от меня пахло пивом и казалось, будто я уже в детстве «бухаю».
+     </p>
+    </div>
+   </div>
+   <p>
+    <em>
+     И это только часть нашей семейной коллекции. Уверена, мы ещё вспомним немало историй.
+    </em>
+   </p>
+  </section>
+  <section class="section" id="travels">
+   <div class="sectionhead">
+    <div class="eyebrow">
+     Глава V · Дороги, которые нас связывают
+    </div>
+    <h2>
+     Куда бы мы ни ехали — это тоже наша история
+    </h2>
+    <p class="muted">
+     Джубга, Абхазия и Сочи, Горячий Ключ, северные дороги зимой и Санкт-Петербург на мой пятнадцатый день рождения. Места меняются, а воспоминания остаются.
+    </p>
+   </div>
+   <div class="cards">
+    <article class="card">
+     <img alt="Путешествие на юг" class="card-photo" src="images/photo-10.jpg"/>
+     <div class="num">
+      ЮГ
+     </div>
+     <h3>
+      Абхазия и море
+     </h3>
+     <p>
+      Невероятные приключения для маленькой Саши, которая попала в сказку.
+     </p>
+    </article>
+    <article class="card">
+     <img alt="Зимняя дорога" class="card-photo" src="images/15.jpg"/>
+     <div class="num">
+      СЕВЕР
+     </div>
+     <h3>
+      Зимняя дорога
+     </h3>
+     <p>
+      Поездки туда, где вы жили, и первая зимняя дорога с папой. Не просто путь на карте, а отдельная глава нашей истории.
+     </p>
+    </article>
+    <article class="card">
+     <img alt="Семейная поездка" class="card-photo" src="images/16.jpg"/>
+     <div class="num">
+      15 ЛЕТ
+     </div>
+     <h3>
+      Санкт-Петербург
+     </h3>
+     <p>
+      Поездка-сюрприз, красивые сборы, фотографии, ресторан и вечерняя прогулка на мотоцикле. День рождения, который я запомнила.
+     </p>
+    </article>
+   </div>
+  </section>
+  <section class="section warm" id="song">
+   <div class="two">
+    <div>
+     <div class="eyebrow">
+      Глава VI · То, что невозможно купить
+     </div>
+     <h2>
+      Песня, которую ты записал для меня
+     </h2>
+     <p>
+      Ты не певец и никогда не пытался им быть. Но ради меня ты пришёл в студию и записал песню — подарок, в котором было гораздо больше, чем просто музыка.
+     </p>
+     <p>
+      На мой восемнадцатый день рождения ты устроил сюрприз, которого я совсем не ожидала. И среди всего этого была песня от тебя. Я знаю, сколько любви стоит за этим поступком, и никогда не забуду его.
+     </p>
+     <p class="quote">
+      «Доча, доченька моя.. самая красивая...»
+     </p>
+    </div>
+    <div class="card">
+     <div class="num">
+      ПАМЯТЬ, КОТОРАЯ ЗВУЧИТ
+     </div>
+     <h3>
+      Один из самых дорогих подарков
+     </h3>
+     <p>
+      Ты сделал то, чего обычно не делаешь, — специально для своей дочери.
+     </p>
+    </div>
+   </div>
+  </section>
+  <section class="section" id="letter">
+   <div class="letter-wrap">
+    <div class="eyebrow">
+     Последняя глава · Только для папы
+    </div>
+    <h2>
+     У меня есть кое-что для тебя
+    </h2>
+    <p class="muted">
+     Нажми на конверт. Здесь слова, которые я не всегда говорю вслух.
+    </p>
+    <button aria-controls="letterText" aria-expanded="false" class="envelope" id="openLetter">
+     <div class="env-front">
+      <div class="seal">
+       Д
+      </div>
+      <div class="env-label">
+       Для папы · открыть письмо
+      </div>
+     </div>
+    </button>
+    <article class="letter" id="letterText">
+     <p>
+      Пап, я не всегда говорю тебе всё это вслух, поэтому хочу, чтобы ты прочитал.
+     </p>
+     <p>
+      Спасибо тебе за всё, что ты для меня сделал. За большие поступки и маленькие моменты, за заботу, поддержку, наши поездки, сюрпризы и воспоминания, которые я храню до сих пор. Спасибо за то, что ты есть.
+     </p>
+     <p>
+      Я безумно горжусь тобой. Твоими достижениями, твоим характером, тем, как ты умеешь добиваться своего и справляться с тем, перед чем другие могли бы отступить. Иногда я радуюсь твоим успехам даже сильнее, чем собственным, потому что для меня они правда много значат.
+     </p>
+     <p>
+      Знаешь, какой комплимент для меня самый приятный? Когда мне говорят, что я похожа на тебя. Для кого-то это просто слова, а для меня — огромная гордость. Потому что я считаю тебя самым красивым, восхищаюсь твоим характером и обожаю твой юмор. Мне приятно, что во мне есть частичка тебя. Но не переживай — я всё-таки твоя лучшая версия.
+     </p>
+     <p>
+      Я не знаю, сомневался ли ты когда-нибудь в том, хороший ли ты папа. Но хочу, чтобы ты знал: я помню то, что ты для меня делал, я это ценю и благодарна тебе. Я счастлива, что мы стали ближе, и очень хочу, чтобы впереди у нас было ещё много общих историй.
+     </p>
+     <p>
+      Для меня ты не обязан быть идеальным, не должен всё уметь и всегда быть сильным. Ты просто мой папа — человек, которым я восхищаюсь, за которого радуюсь и которого очень люблю.
+     </p>
+     <p class="signature">
+      Ты мой герой, папа.
+     </p>
+     <p>
+      Твой Жучок ❤️
+     </p>
+    </article>
+   </div>
+  </section>
+  <footer class="footer">
+   <div class="eyebrow">
+    С праздником! С днем Отца!
+   </div>
+   <strong>
+    Ты мой герой, папа.
+   </strong>
+   <p class="small">
+    Сделано с любовью. Только для тебя.
+   </p>
+  </footer>
+  <script>
+   const openLetterButton = document.getElementById('openLetter');
+const letterText = document.getElementById('letterText');
+
+openLetterButton.addEventListener('click', () => {
+    const isOpen = letterText.classList.toggle('open');
+
+    openLetterButton.setAttribute('aria-expanded', String(isOpen));
+    openLetterButton.querySelector('.env-label').textContent = isOpen
+        ? 'Письмо открыто'
+        : 'Для папы · открыть письмо';
+
+    if (isOpen) {
+        setTimeout(() => {
+            letterText.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }, 100);
+    }
+});
+  </script>
+ </body>
+</html>
